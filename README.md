@@ -19,6 +19,10 @@ The last of which is an identity transformation.
 The Ottar Grammar file details the syntax.
 Examples can be found in the example folder.
 
+Ottar should be considered Academic Quality Code, and should be realeased under the [CRAPL](http://matt.might.net/articles/crapl/) license, however, BSD will do fine.
+Please not this is a work in progress and YMMV.
+I also aim to fix the syntax in the near future...
+
 ## Building
 
 It is assumed that you have installed [Haskell](http://www.haskell.org/platform/).
