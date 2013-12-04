@@ -1,0 +1,10 @@
+-- | Need-Schroeder-Lowe Public Key Protocol
+
+A -> S : ID(A), ID(B)
+S -> A : { Enc(B), ID(B) }_Sig(S)
+A -> B : { N(A), ID(A) }_Enc(B)
+B -> S : ID(B), ID(A)
+S -> B : { Enc(A), ID(A) }_Sig(S)
+B -> A : { N(A), N(B), ID(B)}_Enc(A)
+A -> B : { N(B) }_Enc(B)
+

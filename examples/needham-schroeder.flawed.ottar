@@ -1,0 +1,21 @@
+-- | Needham-Schroeder Public Key Protocol
+-- with MITM For illustrative purposes only.
+
+
+A -> S : ID(A), ID(B)
+S -> A : { Enc(B), ID(B) }_Sig(S)
+
+-- A -> B : { N(A), ID(A) }_Enc(B)
+A -> I : {N(A), ID(A) }_Enc(I)
+I -> B : {N(A), ID(A) }_Enc(B)
+
+B -> S : ID(B), ID(A)
+S -> B : { Enc(A), ID(A) }_Sig(S)
+
+-- B -> A : { N(A), N(B) }_Enc(A)
+B -> I : { N(A), N(B) }_Enc(A)
+I -> A : { N(A), N(B) }_Enc(A)
+
+-- A -> B : { N(B) }_Enc(B)
+A -> I : { N(B) }_Enc(I)
+I -> B : { N(B) }_Enc(B)

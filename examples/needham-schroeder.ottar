@@ -1,0 +1,11 @@
+-- Needham Schroeder Public Key Protocol: An Informal Narration
+
+A -> S : ID(A), ID(B)
+S -> A : { Enc(B), ID(B) }_Sig(S)
+A -> B : { N(A), ID(A) }_Enc(B)
+B -> S : ID(B), ID(A)
+S -> B : { Enc(A), ID(A) }_Sig(S)
+B -> A : { N(A), N(B) }_Enc(A)
+A -> B : { N(B) }_Enc(B)
+
+

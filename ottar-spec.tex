@@ -1,0 +1,103 @@
+\documentclass[pdftex]{article}
+
+\usepackage{backnaur}
+\usepackage[active, tightpage]{preview}
+
+\PreviewEnvironment{bnf}
+\begin{document}
+
+\begin{bnf}
+\bnfprod{Ottar}{%
+  \bnfpn{send}
+  \bnfsp
+  \bnfpn{msgs}
+}\\
+\bnfprod{send}{%
+  \bnfpn{ident}
+  \bnfts{`$\rightarrow$'}
+  \bnfpn{ident}
+  \bnfts{`:'}
+}\\
+\bnfprod{msgs}{%
+  \bnfpn{msg} (\bnfts{`,'} \bnfpn{msg})+
+}\\
+\bnfprod{msg}{%
+  \bnfpn{nonce}
+  \bnfor
+  \bnfpn{id}
+  \bnfor
+  \bnfpn{key}
+  \bnfor
+  \bnfpn{func}
+  \bnfor
+  \bnfpn{string}
+}\\
+\bnfprod{nonce}{%
+  \bnfts{`N'}
+  \bnfpn{tag}
+}\\
+\bnfprod{id}{%
+  \bnfts{`ID'}
+  \bnfpn{tag}
+}\\
+\bnfprod{key}{%
+  \bnfpn{keytpe}
+  \bnfpn{tag}
+}\\
+\bnfprod{keytype}{%
+  \bnfts{`Enc'}
+  \bnfor
+  \bnfts{`Dec'}
+  \bnfor
+  \bnfts{`Sig'}
+  \bnfor
+  \bnfts{`Ver'}
+}\\
+\bnfprod{func}{%
+  \bnfpn{symm}
+  \bnfor
+  \bnfpn{asymm}
+%  \bnfor
+%  \bnfpn{notdet}
+}\\
+\bnfprod{symm}{%
+  \bnfts{`\{'}
+  \bnfsp
+  \bnfpn{msgs}
+  \bnfsp
+  \bnfts{`\}'}
+  \bnfts{`\_'}
+  \bnfts{`K'}
+  \bnfpn{tag}
+}\\
+\bnfprod{asymm}{%
+%  \bnfts{`\{\textbar'}
+  \bnfts{\{'}
+  \bnfsp
+  \bnfpn{msgs}
+  \bnfsp
+  \bnfts{\}'}
+%  \bnfts{`\textbar
+  \bnfts{`\_'}
+  \bnfpn{key}
+}\\
+% \bnfprod{nondet}{%
+%   \bnfts{`\{\textless'}
+%   \bnfsp
+%   \bnfpn{msgs}
+%   \bnfsp
+%   \bnfts{`\textgreater\}'}
+%   \bnfts{`\_'}
+%   \bnfpn{key}
+%   \bnfts{`('}
+%   \bnfpn{ident}
+%   \bnfts{`)'}
+% }\\
+\bnfprod{tag}{%
+  \bnfts{`('}
+  \bnfpn{ident}
+  \bnfts{`)'}
+}
+\end{bnf}
+
+\end{document}
